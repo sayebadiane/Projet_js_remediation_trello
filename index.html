@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Document</title>
 </head>
 <body>
@@ -39,7 +40,7 @@
 
 
             <div class="modale" id="modale">
-                <form action="" class="modale_form">
+                <form action="" class="modale_form" id="rset">
                     <div class="modale_header">
                         <p>NOUVELLE TACHES</p>
                         <span id="modale_span">x</span>
@@ -47,17 +48,17 @@
                     <div class="modale_midle">
                     <h2>Remplir les information de la nouvelle tache</h2>
                     <p>TACHE</p>
-                    <textarea name="taches_enregistrer" id="taches_enregistrer" cols="50" rows="10"></textarea>
+                    <textarea name="taches_enregistrer" class="modifier_tache" id="taches_enregistrer" cols="50" rows="10"></textarea>
                     </div>
 
                     <div class="modale_end">
                     
                         <label for="">Date</label>
-                        <input type="date" id="date" name="" placeholder="11/mm/aaaa">
+                        <input type="date" id="date"  class="modifier_tache" name="" placeholder="11/mm/aaaa">
                         <label for="" >Heures De Debuts</label>
-                        <input type="time" id="date_heures_de_debut" name="" placeholder="--/--">
+                        <input type="time" id="date_heures_de_debut" class="modifier_tache" name="" placeholder="--/--">
                         <label for="">Heures De Fin</label>
-                        <input type="time"  id="date_heures_de_fin" name="" placeholder="--/--">
+                        <input type="time"  id="date_heures_de_fin" class="modifier_tache" name="" placeholder="--/--">
                         <button id="ajouter">Ajouter</button>
                     
 

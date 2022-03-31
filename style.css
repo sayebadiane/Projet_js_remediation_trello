@@ -3,6 +3,7 @@ body{
     padding: 0;
     background-color:rgb(233, 231, 230);
     height: 100vh;
+    display: flex;
     
 }
 .main{
@@ -18,10 +19,21 @@ body{
     font-size: 1.5rem;
     width: 100%;
     background-color:#005C5A;
-    margin-top: -7%;  
+    display: none; 
+    /* box-shadow: 0 0 0 0 #000; 
+    animation: pulse 1.3s infinite; */
+   
 }
+/* @keyframes pulse {
+    to{
+        box-shadow: 0 0 0 18px rgba(0, 0, 0, 1);
+    }
+    
+} */
 .header1{
-    margin-top: 0;
+   display: block;
+    animation: backInDown;
+    animation-duration: 1s;
 
 }
 .colonne{
@@ -45,10 +57,14 @@ body{
 .note:hover{
     background-color:#00A6A3;
     color: white;
+    animation: fadeIn;
+    animation-duration: 3s;
 }
 .colonne:hover{
     background-color: #00A6A3;
     color: white;
+    animation: fadeIn;
+    animation-duration: 3s;
 }
 .midle{
     display: flex;
@@ -56,23 +72,56 @@ body{
 }
 .midle_right{
     display: flex;
-    width: 95%;
+    width: 80%; 
     margin-left: 2rem;  
 }
 .midle_right .col{
     width: 20%;
     height: 84vh;
     margin-left: 1rem;
+    animation: backInUp;
+    animation-duration: 1s;
+    border: 1px solid gray;
+    overflow-y: scroll;
  
 }
-.col input{
-    width: 100%;
-    padding: 0.7rem 0;
+
+.colheader{
+   
+     width: 100%;
+     height: 7%;
+    /* padding: 0.7rem 0; */
     font-size: 1.5rem;
-    text-align: center;
+    
+    /* border: 4px solid red; */
+
+}
+.p1{
+    margin-top: 0;
+    width: 100%;
+    height: 90%; 
+    border:1px 0 1px 1px solid black ;
+    font-size: 1.5rem;
+    text-align: center; 
+    padding-top: 0.5rem;
+    background-color: white;
     border: none;
     border-radius: 3px;
+
+}
+
+
+.header_input{
+    width: 95%;
+    height: 89%; 
+    border:1px 0 1px 1px solid black ;
+    font-size: 2rem;
+    text-align: center;
     
+    
+}
+.header_input1{
+    display: block;
 }
 .col img{
 width: 15rem; 
@@ -81,15 +130,17 @@ border: none;
 border-radius: 20px;
 text-align: center;
 margin-top: 20rem;
-margin-left: 1rem;
-/* position: relative; */
+margin-left: 0.5rem;
+position: absolute; 
+top: 10%;
 }
 .col span{
     position: relative;
-    top: -63%;
+    top: -5%;
     left: 90%;
     background-color: white;
     cursor: pointer;
+    border:1px 0 1px 1px solid black ;
 }
 #midle_left_icone{
     /* margin: 50rem 0 0 2rem; */
@@ -110,6 +161,7 @@ margin-left: 1rem;
     bottom: 3%;
     right: 3%;
     opacity: 0.5;
+    z-index: 1;
     
 }
 .modale{
@@ -124,6 +176,7 @@ margin-left: 1rem;
 }
 .modale1{
     display: block;
+    z-index: 3;
 
 }
 .modale_header{
@@ -172,44 +225,66 @@ margin-left: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
     background-color: rgb(97, 145, 3);
+    
 
 }
 .taches{
     position: relative; 
-    top: -62%;
+   
     left: 0;
     display: flex;
     flex-direction: column; 
     border: 2px solid rgb(233, 231, 230);
     border-radius: 3px;
     margin-top: 1rem;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    z-index: 3;
+    
+    
+    
+}
+.taches .text{
+     /* height: 5rem; */
+    /* max-height: 15rem; */
+    
+}
+#supprime_tache{
+
+margin-left: 67%;
+
 }
 .horaire{
     display: none;
+    
 }
 .horaire1{
     display: block;
 }
-#btn_droit{
-    /* position: relative;
-    right: -30%;
-    top: -30%; */
-}
+/* #btn_droit{
+    position: relative;
+    text-align: center;
+} */
 .redirection{
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
+    text-align: center;
    
 }
 .corbeille{
-    width: 20%;
-    background-color: blue;
-    height: 85vh;
+    width: 17%;
+    background-color: white;
+    height: 83vh;
     position: absolute;
     right: 0;
-    top: 6%;
+    top: 0%;
+    padding-top: 0%;
+    margin-top: 7%;
     display: none;
     overflow-y:scroll; 
+    animation: backInUp;
+    animation-duration: 1s;
 }
 .corbeille_block{
     display: block;

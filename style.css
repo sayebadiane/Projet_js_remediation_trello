@@ -1,7 +1,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color:rgb(233, 231, 230);
+    background-color:white;
     height: 100vh;
     display: flex;
     
@@ -73,11 +73,12 @@ body{
 .midle_right{
     display: flex;
     width: 80%; 
-    margin-left: 2rem;  
+    margin-left: 2rem; 
+    margin-top: 1rem; 
 }
 .midle_right .col{
     width: 20%;
-    height: 84vh;
+    height: 83vh;
     margin-left: 1rem;
     animation: backInUp;
     animation-duration: 1s;
@@ -173,6 +174,7 @@ top: 10%;
     position: absolute;
      font-size: 1.5rem;
      display: none;
+     margin-top: 1.5%;
 }
 .modale1{
     display: block;
@@ -183,7 +185,10 @@ top: 10%;
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
-    background-color: gray;
+    background-color: #2596be;
+}
+.modale_header p{
+    margin-left: 4rem;
 }
 .modale_midle h2{
     font-size: 1rem;
@@ -191,6 +196,8 @@ top: 10%;
 }
 .modale_midle textarea{
     margin-left: 1rem;
+    height: 10rem;
+    width: 90%;
 }
 .modale_midle p{
     margin-left: 1rem;
@@ -230,23 +237,26 @@ top: 10%;
 }
 .taches{
     position: relative; 
-   
     left: 0;
     display: flex;
     flex-direction: column; 
-    border: 2px solid rgb(233, 231, 230);
+    border: 1px solid black;
     border-radius: 3px;
     margin-top: 1rem;
     overflow-y: scroll; 
     overflow-x: hidden;
     z-index: 3;
-    
+    animation: lightSpeedInRight;
+    animation-duration: 1s;
+    margin: 0 0.5rem 0 0.5rem;
+    margin-bottom: 2rem;
     
     
 }
 .taches .text{
      /* height: 5rem; */
     /* max-height: 15rem; */
+    margin-left: 1rem;
     
 }
 #supprime_tache{
@@ -261,6 +271,9 @@ margin-left: 67%;
 .horaire1{
     display: block;
 }
+.horaire p{
+    margin-left: 1rem;
+}
 /* #btn_droit{
     position: relative;
     text-align: center;
@@ -274,7 +287,7 @@ margin-left: 67%;
 }
 .corbeille{
     width: 17%;
-    background-color: white;
+    background-color:red;
     height: 83vh;
     position: absolute;
     right: 0;
@@ -285,7 +298,20 @@ margin-left: 67%;
     overflow-y:scroll; 
     animation: backInUp;
     animation-duration: 1s;
+    border: 1px solid black;
 }
 .corbeille_block{
     display: block;
+}
+.corbeille P{
+    width: 50%;
+    font-size: 2rem;
+    /* text-align: center; */
+    margin-left: 30%;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+    /* padding: 1rem 0; */
+    background-color: bisque;
+    margin-top: 1rem;
 }

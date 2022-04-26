@@ -9,6 +9,8 @@ const refresh = document.getElementById("refresh");
 var modale_span = document.getElementById("modale_span");
 const burger = document.getElementById("burger");
 const corbeille = document.getElementById("corbeille");
+const save = document.getElementById("save");
+//console.log(save)
 const rset = document.getElementById("rset");
 var taches_enregistrer = document.getElementById("taches_enregistrer");
 var date = document.getElementById("date");
@@ -44,7 +46,7 @@ function getcolonne() {
 
             const p1 = document.createElement("p");
             p1.className = "p1";
-            p1.innerText = `colonne${i+1}`
+            p1.innerText = `colonne${i + 1}`
             const image = document.createElement("img");
             image.src = "./image/saye__1_-removebg-preview.png";
 
@@ -56,15 +58,15 @@ function getcolonne() {
             div1.appendChild(divheader);
             div1.appendChild(spane);
 
-           // Display block de p1
+            // Display block de p1
             p1.addEventListener("dblclick", function () {
                 p1.style.display = "none";
                 input1.style.display = "block";
             })
 
-            
+
             //     display none input
-             input1.addEventListener("blur", function () {
+            input1.addEventListener("blur", function () {
                 p1.style.display = "block";
                 // console.log(input1.value);
                 p1.innerText = input1.value;
@@ -82,9 +84,8 @@ function getcolonne() {
             if ((i) == 0) {
                 ajouter.addEventListener("click", function (e) {
                     e.preventDefault();
-
                     cretache(div1);
-                   
+                    reset_form();
 
                 })
             }
@@ -119,7 +120,8 @@ function getcolonne() {
 
     })
 
-   
+
+
 
 
 }
@@ -128,26 +130,30 @@ modale_span.addEventListener("click", function () {
 
 })
 function cretache(div1) {
-    var taches_enregistrer = document.getElementById("taches_enregistrer");
-    var date_heures_de_debut = document.getElementById("date_heures_de_debut");
-    var date_heures_de_fin = document.getElementById("date_heures_de_fin");
-    var date = document.getElementById("date");
+    // var taches_enregistrer = document.getElementById("taches_enregistrer");
+    // var date_heures_de_debut = document.getElementById("date_heures_de_debut");
+    // var date_heures_de_fin = document.getElementById("date_heures_de_fin");
+    // var date = document.getElementById("date");
     const taches = document.createElement("div")
+    taches.setAttribute("data-text", taches_enregistrer.value)
+    taches.setAttribute("data-date", date.value)
+    taches.setAttribute("data-heures-de-debut", date_heures_de_debut.value)
+    taches.setAttribute("data-heures-de-fin", date_heures_de_fin.value)
     taches.className = "taches"
     const text = document.createElement("div");
     text.className = "text";
     var p = document.createElement("p");
-    p.innerText = taches_enregistrer.value;
+    p.innerText = taches.getAttribute('data-text')
     const horaire = document.createElement("div");
     horaire.className = "horaire";
-    var pdate = document.createElement("p")
-    pdate.innerText = date.value;
+    var pdate = document.createElement("p");
+    pdate.innerText = taches.getAttribute("data-date")
     horaire.appendChild(pdate);
     var pdate_heures_de_debut = document.createElement("p")
-    pdate_heures_de_debut.innerText = date_heures_de_debut.value;
+    pdate_heures_de_debut.innerText = taches.getAttribute('data-heures-de-debut')
     horaire.appendChild(pdate_heures_de_debut);
     var pdate_heures_de_fin = document.createElement("p")
-    pdate_heures_de_fin.innerText = date_heures_de_fin.value;
+    pdate_heures_de_fin.innerText = taches.getAttribute('data-heures-de-fin')
     const btn_g = document.createElement("i");
     btn_g.className = "fa-solid fa-angles-left";
     btn_g.id = "btn_gauche"
@@ -185,6 +191,7 @@ function cretache(div1) {
         deplace_taches(document.getElementById(x + 1));
         taches.classList.remove("ok");
 
+
     })
 
     btn_g.addEventListener("click", function () {
@@ -216,7 +223,7 @@ function cretache(div1) {
     })
     //restaurer
     supprime_tache.addEventListener("dblclick", function (e) {
-        if(e.target.parentElement.classList.contains("redirection") == true){
+        if (e.target.parentElement.classList.contains("redirection") == true) {
             taches.classList.add("ok");
             deplace_taches(document.getElementById(0));
             taches.classList.remove("ok");
@@ -225,10 +232,7 @@ function cretache(div1) {
     })
 
     //modifier une tache
-    modifier_tache(taches);
-   
-    // reset_form();
-
+    modifier_tache(taches); console.log("ok");
 }
 
 function deplace_taches(divto) {
@@ -247,12 +251,12 @@ function deplace_taches(divto) {
 // fonction de mise de jour
 function mis_a_jour() {
     var p1s = document.querySelectorAll(".p1");
-    p1s.forEach((p,i) => {
+    p1s.forEach((p, i) => {
         p.innerText = "colonne" + (i + 1);
-        
-        
+
+
     });
-    
+
 }
 burger.addEventListener("click", function () {
     corbeille.classList.add("corbeille_block");
@@ -263,9 +267,10 @@ burger.addEventListener("dblclick", function () {
 function reset_form() {
     rset.reset();
 }
+///fonction modifier taches
 function modifier_tache(taches) {
     taches.addEventListener("dblclick", function (e) {
-        console.log(e.target.parentElement);
+        // console.log(e.target.parentElement);
         var modifier_tache = document.getElementById("rset").querySelectorAll(".modifier_tache")
         //modale.parentElement.querySelector("textarea"));
         var pmodifier = e.target.parentElement.querySelectorAll("p")
@@ -275,16 +280,95 @@ function modifier_tache(taches) {
             j++;
 
         });
-        e.target.parentElement.remove();
-        // console.log(e.target.p);
+        ajouter.addEventListener("click", function () {
+            e.target.parentElement.remove();
+
+        })
+        compare_date();
+
         alert("ok");
         modale.classList.add("modale1");
     })
 
-    
+
+}
+function fermer_modale() {
+    const ajouter = document.getElementById("ajouter");
+    ajouter.addEventListener("click", function () {
+
+        modale.classList.remove("modale1");
+
+    })
+}
+function compare_date(taches) {
+    if (date_heures_de_fin.value === date_heures_de_debut.value) {
+        taches.style.backgroundColor = "red";
+
+    }
+
+}
+fermer_modale();
+getcolonne();
+async function postfetch() {
+    var colonne = document.querySelectorAll(".col")
+    var tableau = [];
+    colonne.forEach(element => {
+        var taches = element.querySelectorAll(".taches")
+        taches.forEach(ele => {
+            var objet = {
+                position: element.getAttribute("id"),
+                text: ele.getAttribute("data-text"),
+                date: ele.getAttribute("data-date"),
+                date_debut: ele.getAttribute("data-heures-de-debut"),
+                date_fin: ele.getAttribute("data-heures-de-fin"),
+            }
+            tableau.push(objet)
+        });
+    });
+    var json = JSON.stringify(tableau)
+    var nb_col = document.querySelectorAll(".col").length
+    var dateNow = moment(new Date()).format("YYYY-MM-DD HH:mm:ss")
+    let form = new FormData();
+    form.append("controller", "tache")
+    form.append("action", "test");
+    form.append("date", dateNow)
+    form.append("json", json)
+    form.append("nbr_colonne", nb_col)
+
+    let reponse = await fetch("../../Projet_trello/public/index.php", {
+        method: "post",
+        body: form
+
+    })
+    return await reponse.json()
+
 }
 
-getcolonne();
+save.addEventListener('click', async () => {
+    var poster = await postfetch()
+});
+
+function getfetch() {
+    fetch("http://127.0.0.1/Projet_trello/public/?controller=tache&action=liste")
+        .then(response => response.json()
+            .then(data => {
+                console.log(data);
+            }));
+
+}
+window.addEventListener("load", function () {
+
+    getfetch();
+})
+
+
+
+
+
+
+
+
+
 
 
 

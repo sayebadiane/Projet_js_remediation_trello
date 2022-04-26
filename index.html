@@ -48,17 +48,17 @@
                     <div class="modale_midle">
                     <h2>Remplir les information de la nouvelle tache</h2>
                     <p>TACHE</p>
-                    <textarea name="taches_enregistrer" class="modifier_tache" id="taches_enregistrer" cols="50" rows="10"></textarea>
+                    <textarea name="taches_enregistrer" class="modifier_tache" id="taches_enregistrer" value=""></textarea>
                     </div>
 
                     <div class="modale_end">
                     
                         <label for="">Date</label>
-                        <input type="date" id="date"  class="modifier_tache" name="" placeholder="11/mm/aaaa">
+                        <input type="date" id="date"  class="modifier_tache" value="" name="" placeholder="11/mm/aaaa">
                         <label for="" >Heures De Debuts</label>
-                        <input type="time" id="date_heures_de_debut" class="modifier_tache" name="" placeholder="--/--">
+                        <input type="time" id="date_heures_de_debut" value="" class="modifier_tache" name="" placeholder="--/--">
                         <label for="">Heures De Fin</label>
-                        <input type="time"  id="date_heures_de_fin" class="modifier_tache" name="" placeholder="--/--">
+                        <input type="time"  id="date_heures_de_fin" value="" class="modifier_tache" name="" placeholder="--/--">
                         <button id="ajouter">Ajouter</button>
                     
 
@@ -73,12 +73,16 @@
     </div>
     
     <i class="fa-solid fa-gear fa-2x" id="midle_left_icone" ></i>
+    <i id="save" class="fa-solid fa-floppy-disk fa-2x"></i>
     <i id="refresh" class="fa-solid fa-arrows-rotate fa-2x"></i>
     <i id="burger" class="fa-solid fa-bars fa-2x"></i>
     <div class="corbeille" id="corbeille">
+        <p>TACHRES</p>
         
     
     </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="script.js"></script>
    
     
